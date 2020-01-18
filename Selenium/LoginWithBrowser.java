@@ -1,13 +1,13 @@
 public class LoginWithBrowser extends HeadlessBrowser {
 
-  	// Define selectors for html elements.
+    // Define selectors for html elements.
     private static final By LOGIN_BUTTON = By.cssSelector("button[data-web-test='start-button-submit']");
     private static final By USERNAME_INPUT = By.cssSelector("input[data-web-test='loginForm-username']");
     private static final By PASSWORD_INPUT = By.cssSelector("input[data-web-test='loginForm-password']");
 
     private String loginUrl;
-	  private String username;
-	  private String password;
+    private String username;
+    private String password;
 	
     public LoginWithBrowser(String loginUrl, String username, String password) {
         super();
@@ -27,8 +27,8 @@ public class LoginWithBrowser extends HeadlessBrowser {
 
         waitUntilElementClicked(LOGIN_BUTTON);
 		
-		    waitUntilElementMissing(LOGIN_BUTTON);
+        waitUntilElementMissing(LOGIN_BUTTON);
 		
-		    close();
+        close();
     }
 }
