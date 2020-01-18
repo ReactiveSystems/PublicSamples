@@ -29,6 +29,6 @@ public class LoginWithBrowser extends HeadlessBrowser {
 		
         waitUntilElementMissing(LOGIN_BUTTON);
 		
-        close();
+        cleanup();
     }
 }
