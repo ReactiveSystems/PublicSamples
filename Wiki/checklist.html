@@ -1,0 +1,96 @@
+<html>
+	<head>
+		<title>Example for a dynamic checklist</title>
+	</head>
+	<body>
+
+	<!-- Checklist code start -->
+	
+		<form action="#" method="post" onsubmit="return createChecklist(event, this);" style="width: 100%; max-width: 500px; display: flex; flex-direction:column; background: #e8d547; padding: 10px;">
+			<input type="text" value="9.5" name="branch_version" placeholder="Release Branch Version: 9.5" style="margin-bottom: 5px;" />
+			<input type="text" value="9.5.0-RC4" name="current_version" placeholder="Zu bauende Version: 9.5.0-RC2" style="margin-bottom: 5px;" />
+			<input type="text" value="9.5.0-RC5" name="next_version" placeholder="Nächste Release Version: 9.5.0-RC3" style="margin-bottom: 5px;" />
+			<button type="submit" style="background: #fff; display: flex; flex-direction:row; align-items: center; max-width: 200px; font-weight: bold; padding: 5px;">
+				<img src="data:image/png;base64,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" width="40">
+				<span style="margin-left: 10px">Checkliste erstellen</span>
+			</button>
+		</form>
+		<script>
+			function createChecklist(event, form) {
+				event.preventDefault();
+						
+				if(!form.branch_version.value || 
+				   !form.current_version.value || 
+				   !form.next_version.value) {
+				   alert("Es müssen alle Felder ausgefüllt werden.");
+				   return false;
+				}
+				
+				var branch_version = form.branch_version.value;
+				var current_version = form.current_version.value;
+				var next_version = form.next_version.value;
+				
+				// Build checklist
+				
+				var checklist = [
+					{ 
+						title: 'Release-Branch erstellen',
+						todos: [
+					'<span style="color:darkred">Wichtig: Dieser Abschnitt muss nur dann durchlaufen werden, wenn es noch keinen Release-Branch gibt.</span>',
+					'develop Branch pullen.',
+					'<code>develop</code> Branch in <code>release/' + branch_version + '</code> überführen und pushen.',
+					'Im Branch folgende Änderungen vornehmen:',
+					' - <code>pom.xml</code> und <code>package.json</code>: Referenzierte SNAPSHOT-Versionen auflösen (also die fixen Versionen eintragen).',
+					'Branch pushen.',
+					'Kurz den Release antesten: Aktuelle Stand bauen und öffnen. Wenn keine Fehler in der Console, dann ist soweit alles ok.',
+						],
+					},
+					{ 
+						title: 'Release-Branch anpassen',
+						todos: [
+					'Im Release Branch <code>release/' + branch_version + '</code>, in der pom.xml die nächste SNAPSHOT Version eintragen: <code>&lt;version&gt;' + next_version + '-SNAPSHOT&lt;/version&gt;</code>',
+					'Branch pushen.',
+						],
+					},
+					{
+					title: 'RC bauen',
+					todos: [
+						'Befehl ausführen: <code>mvn release:prepare</code>',
+						' - Release version eintragen: <code>' + current_version + '</code>',
+						' - Release tag eintragen: <code>' + current_version + '</code>',
+						' - Development version eintragen: <code>' + next_version + '</code>',
+						'Befehl ausführen: <code>mvn release:perform</code>',
+					]},
+					{ 
+						title: 'War-Files kopieren',
+						todos: [
+					'War-File an DevOps übergeben.'
+						],
+					},
+				];
+						
+				// HTML Code erstellen und im neuen Fenster öffnen		
+				
+				var pageTemplate = '<html><head><title>Checkliste: Bauen eines RCs</title><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"><style>h1 { font-size: 2rem; } code { color: #1aa2d6; }</style></head><body class="container">{{CHECKLIST}}</body></html>';
+				
+				var code = "";
+				for (var index=0; index<checklist.length; index++) {
+					code += '<h1>' + checklist[index].title + '</h1>\r\n';
+					for (var jndex=0; jndex<checklist[index].todos.length; jndex++) {
+						code += '<label><input type="checkbox"> ' + checklist[index].todos[jndex] + '</label><br/>\r\n';			
+					}
+				}
+				
+				var html = pageTemplate.replace('{{CHECKLIST}}', code);	
+				
+				var win = window.open();
+				win.document.write(html);
+				//win.print();
+				return false;
+			}
+		</script>
+		
+	<!-- Checklist code end -->
+	
+	</body>
+</html>
